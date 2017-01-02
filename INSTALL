@@ -59,6 +59,22 @@ pacaur -S urxvt-fullscreen
 pacaur -S urxvt-tabbedex
 sudo pacman -S socat
 sudo pip3 install pyuv
+
+# infinality
+sudo echo "[infinality-bundle]
+Server = http://bohoomil.com/repo/$arch" >> /etc/pacman.conf
+pacman-key -r keyid 962DDE58
+sudo pacman-key -r keyid AE6866C7962DDE58
+sudo pacman-key -f keyid AE6866C7962DDE58
+sudo pacman-key --lsign-key keyid AE6866C7962DDE58
+sudo pacman -Syyu
+sudo pacman -S infinality-bundle
+## add config
+# https://wiki.archlinux.org/index.php/Infinality#Infinality-bundle
+
+# software install
+sudo pacman -S atom
+
 # install antigen
 curl https://cdn.rawgit.com/zsh-users/antigen/v1.3.2/bin/antigen.zsh > ~/.antigen.zsh
 
