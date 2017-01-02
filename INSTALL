@@ -59,6 +59,12 @@ pacaur -S urxvt-fullscreen
 pacaur -S urxvt-tabbedex
 sudo pacman -S socat
 sudo pip3 install pyuv
+# install antigen
+curl https://cdn.rawgit.com/zsh-users/antigen/v1.3.2/bin/antigen.zsh > ~/.antigen.zsh
+
+# powerline fonts
+git clone https://github.com/powerline/fonts.git
+cd fonts && ./install.sh
 
 # powerline font fallback
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
