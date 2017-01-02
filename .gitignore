@@ -1,0 +1,53 @@
+Desktop/
+Documents/
+Downloads/
+Dropbox/
+Pictures/
+Videos/
+dev/
+homebase/
+snappy/
+
+# files in config have to explicity added to avoid cluttering
+.config/*
+
+# exclude keys
+.gnupg/*
+.ssh/*
+.pki/*
+
+# ignore gtk config managed by lxappearance
+.gtkrc-2.0
+
+# sesion data
+.bash_history
+.xsession*
+.zcompdump*
+.python_history
+.zsh_history
+.zsh-update
+.ICAClient/*
+.esd_auth
+.lesshst
+.viminfo
+.Xauthority
+.Xclients
+
+# application data
+.moc/*
+.antigen/*
+.dropbox*
+.factorio/*
+.gimp*
+.screenlayout/*
+.steam/*
+.steam*
+.thunderbird/*
+.gnome/*
+.vim/*
+.cache/*
+.atom/*
+.fehbg/*
+.macromedia/*
+.mozilla/*
+.thumbnails/*

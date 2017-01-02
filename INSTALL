@@ -1,0 +1,68 @@
+# what has been installed
+
+sudo pacman -S alsa-utils
+pacaur -S vundle
+pacman -S flake8
+sudo pacman -S flake8
+sudo pacman -S intel-ucode
+pacaur -S bcwc-pcie-git
+sudo pacman -S msr
+pacaur -S powerstat
+pacaur -S --skippgpcheck linux-macbook
+sudo pacman -S tlp
+sudo pacman -S lm_sensors
+sudo pacman -S xf86-video-intel
+sudo pacman -S pbzip2
+sudo pacman -S libreoffice
+sudo pacman -S dropbox
+sudo pacman -S infinality-bundle
+sudo pacman -S playerctl
+pacaur -S playerctl
+sudo pacman -S feh
+pacman -S infinality-bundle-fonts
+sudo pacman -S infinality-bundle-fonts
+sudo pacman -S gnome-icon-theme-full
+pacaur -S gnome-icon-theme-full
+sudo pacman -S arc-gtk-theme
+pacaur -S arc-gtk-theme-git
+sudo pacman -S arc-gtk
+sudo pacman -S arc-gtk-theme
+pacaur -S moka-icon-theme-git
+sudo pacman -S rofi
+sudo pacman -S i3blocks
+pacaur -S i3blocks
+pacaur -S antigen
+pacaur -S python-powerline-git
+sudo pacman -S powerline-fonts
+pacaur -S powerline
+sudo pacman -S skype
+pacaur -S skype
+pacaur -S broadcom-wl
+pacaur -S broadcom-wl-dkms
+pacaur -S linux48-broadcom-wl
+sudo pacman -S scratchpad
+pacaur -S scratchpad
+sudo pacman -S xcursor-themes
+sudo pacman -S acpi
+sudo pacman -S jq
+sudo pacman -S curl
+sudo pacman -S redshift
+pacaur -S mendeleydesktop
+sudo pacman -S ttf-font-awesome
+pacaur -S ttf-font-awesome
+pacaur -S slingshot-launcher-bzr
+pacaur -S plank-bzr
+pacaur -S plank-theme-numix
+pacaur -S plank-theme-pantheon-bzr
+pacaur -S plank-theme-arc
+pacaur -S urxvt-fullscreen
+pacaur -S urxvt-tabbedex
+sudo pacman -S socat
+sudo pip3 install pyuv
+
+# powerline font fallback
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+mv PowerlineSymbols.otf ~/.fonts/
+fc-cache -vf ~/.fonts/
+mkdir -p ~/.config/fontconfig/conf.d && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/

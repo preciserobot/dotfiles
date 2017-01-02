@@ -1,0 +1,4 @@
+#!/bin/bash
+import -window root /tmp/screenshot.png
+convert /tmp/screenshot.png -scale 5% -scale 2000% /tmp/screenshotpixel.png && rm /tmp/screenshot.png
+i3lock -i /tmp/screenshotpixel.png && rm /tmp/screenshotpixel.png
