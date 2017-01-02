@@ -60,6 +60,11 @@ pacaur -S urxvt-tabbedex
 sudo pacman -S socat
 sudo pip3 install pyuv
 
+# chrome
+sudo pacman -S yaourt
+yaourt google-chrome
+
+
 # infinality
 sudo echo "[infinality-bundle]
 Server = http://bohoomil.com/repo/$arch" >> /etc/pacman.conf
