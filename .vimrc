@@ -56,6 +56,7 @@ filetype plugin indent on    " required
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:autofenc_enable = 1
 
 syntax on
 set t_Co=256
