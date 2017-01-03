@@ -316,12 +316,12 @@ exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.i3/pixelatelock
 exec_always --no-startup-id fix_xcursor
 
 # conky
-exec --no-startup-id conky -c ~/.i3/conky/conky_simple &&
+exec --no-startup-id conky -c ~/.i3/conky/conky_simple &
 
-# Plank launchbar
-exec --no-startup-id plank
+# Plank launchbar (disabled)
+#exec --no-startup-id plank
 
-# autostart application
+# autostart applications
 #exec --no-startup-id spotify
 #exec --no-startup-id google-chrome-stable
 #exec --no-startup-id firefox
