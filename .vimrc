@@ -36,6 +36,8 @@ Plugin 'git://github.com/vim-syntastic/syntastic.git'
 " PgDn etc...
 Plugin 'git://github.com/wikitopian/hardmode.git'
 
+" folding for ppythn code
+Plugin 'tmhedberg/SimpylFold'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -57,7 +59,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:autofenc_enable = 1
+let g:SimpylFold_docstring_preview=1
 
+" color and theme stuff
 syntax on
 set t_Co=256
 set cursorline
@@ -67,7 +71,16 @@ let g:airline_theme='onehalfdark'
 " " let g:lightline.colorscheme='onehalfdark'
 
 
+" ################################################################ END OF VUNDLE PLUGIN MANAGER
+" ################################################################ END OF VUNDLE PLUGIN MANAGER
+" ################################################################ END OF VUNDLE PLUGIN MANAGER
 
+" vertical splitting of windows and easy movement between panes with Ctrl-hjkl
+set splitright
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
 
 " Set the default file encoding to UTF-8:
 set encoding=utf-8
@@ -81,11 +94,15 @@ set incsearch
 " Use UNIX (\n) line endings for new files
 autocmd BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
-" autoindent (smart and keep, fold accordingly, based on filetype)
+" indentation 
 set autoindent
 set smartindent
-set foldmethod=indent
 filetype indent on
+
+" code folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
 
 " 4 space tabs
 set tabstop=4
