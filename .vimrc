@@ -1,6 +1,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+
+" install vundle with:
+" git clone git@github.com:VundleVim/vundle.vim ~/.vim/bundle/vundle.vim
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -23,18 +27,21 @@ Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" color schemes
+Plugin 'flazz/vim-colorschemes'
+
 " git-gutter (git status line
-Plugin 'git://github.com/airblade/vim-gitgutter.git'
+Plugin 'airblade/vim-gitgutter'
 
 " auto file encoding detection
-Plugin 'git://github.com/s3rvac/AutoFenc.git'
+Plugin 's3rvac/AutoFenc'
 
 " Syntastic Syntax checker
-Plugin 'git://github.com/vim-syntastic/syntastic.git'
+Plugin 'vim-syntastic/syntastic'
 
 " VIM hardmode (disables the easy but inefficenct keybindings such as pgUp
 " PgDn etc...
-Plugin 'git://github.com/wikitopian/hardmode.git'
+Plugin 'wikitopian/hardmode'
 
 " folding for ppythn code
 Plugin 'tmhedberg/SimpylFold'
@@ -55,6 +62,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Extension Enabler
+set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -65,7 +73,7 @@ let g:SimpylFold_docstring_preview=1
 syntax on
 set t_Co=256
 set cursorline
-colorscheme onehalflight
+colorscheme zenburn
 let g:airline_theme='onehalfdark'
 " lightline
 " " let g:lightline.colorscheme='onehalfdark'
@@ -94,7 +102,7 @@ set incsearch
 " Use UNIX (\n) line endings for new files
 autocmd BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
-" indentation 
+" indentation
 set autoindent
 set smartindent
 filetype indent on
@@ -116,7 +124,7 @@ fu Select_c_style()
     if search('^\t', 'n', 150)
         set shiftwidth=8
         set noexpandtab
-    el 
+    el
         set shiftwidth=4
         set expandtab
     en
@@ -184,11 +192,11 @@ set sidescroll=10
 set number
 
 function! NumberToggle()
-	if(&relativenumber == 1)
-		set number
-	else
-		set relativenumber
-	endif
+    if(&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
