@@ -74,8 +74,14 @@ sudo pacman-key -f keyid AE6866C7962DDE58
 sudo pacman-key --lsign-key keyid AE6866C7962DDE58
 sudo pacman -Syyu
 sudo pacman -S infinality-bundle
+# add font package according to arch wiki
 ## add config
 # https://wiki.archlinux.org/index.php/Infinality#Infinality-bundle
+
+# powersaving stuff
+pacman -S intel_ucode
+pacman -S powertop
+thermald
 
 # software install
 sudo pacman -S atom
