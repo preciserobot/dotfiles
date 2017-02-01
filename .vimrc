@@ -19,10 +19,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-"
+
 " color scheme
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
-"
+
 " airline (status bar)
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -49,6 +49,12 @@ Plugin 'tmhedberg/SimpylFold'
 " vim task list
 Plugin 'aaronbieber/vim-quicktask'
 
+" Directory/file tree
+Plugin 'scrooloose/nerdtree'
+
+" Ctrl-P Fullzy file finder
+Plugin 'ctrlpvim/ctrlp.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -72,6 +78,15 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 let g:autofenc_enable = 1
 let g:SimpylFold_docstring_preview=1
+
+" Nerdtree autoload
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " color and theme stuff
 syntax on
@@ -206,7 +221,7 @@ function! NumberToggle()
     endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
+nnoremap <C-l> :call NumberToggle()<cr>
 
 " ####### PYTHON #########
 
