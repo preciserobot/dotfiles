@@ -1,0 +1,10 @@
+#!/bin/sh
+
+YT=$( which youtube-dl )
+MP=$( which mplayer )
+
+#YTOPT="-f 18 -g " # SMALL VIDEO
+YTOPT="-g "  # BEST OPTION 
+MPOPT="-cache 300"
+
+$MP $MPOPT `$YT $YTOPT "$*"`
