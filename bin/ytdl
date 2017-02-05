@@ -1,0 +1,9 @@
+#!/bin/sh
+
+INP=""
+for v in $@; do
+  youtube-dl -F $v
+  echo -n "Enter format: "
+  read INP
+  youtube-dl -t -f $INP $v
+done

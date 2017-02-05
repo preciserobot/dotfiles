@@ -13,10 +13,16 @@ install 4.8 kernel and headers for wifi
 
 # Notes
 
+## add server to pacman
+echo "XYZ" >> /etc/pacman.conf
+
 ## adding keys to pacman
 pacman-key -r keyid (RECEIVE KEY)
 pacman-key -f keyid (VERIFY FINGERPRINT)
 pacman-key --lsign-key keyid (SIGN KEY LOCALLY)
+
+## sort pacman mirror list by ping
+sudo pacman-mirrors -g
 
 ## change monitor settings
 arandr

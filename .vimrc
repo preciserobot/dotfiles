@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
+let mapleader=','
 
 " install vundle with:
 " git clone git@github.com:VundleVim/vundle.vim ~/.vim/bundle/vundle.vim
@@ -43,15 +43,17 @@ Plugin 'vim-syntastic/syntastic'
 " PgDn etc...
 Plugin 'wikitopian/hardmode'
 
-" folding for ppythn code
+" folding for python code
 Plugin 'tmhedberg/SimpylFold'
+
+" vim task list
+Plugin 'aaronbieber/vim-quicktask'
 
 " Directory/file tree
 Plugin 'scrooloose/nerdtree'
 
 " Ctrl-P Fullzy file finder
 Plugin 'ctrlpvim/ctrlp.vim'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -73,6 +75,7 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1
 let g:autofenc_enable = 1
 let g:SimpylFold_docstring_preview=1
 
@@ -117,6 +120,9 @@ set incsearch
 
 " Use UNIX (\n) line endings for new files
 autocmd BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 " indentation
 set autoindent

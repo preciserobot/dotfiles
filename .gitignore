@@ -34,6 +34,7 @@ snappy/
 .Xclients
 
 # application data
+.local/share/
 .moc/*
 .antigen/*
 .dropbox*
