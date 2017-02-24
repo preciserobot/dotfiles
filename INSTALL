@@ -1,54 +1,35 @@
-# what has been installed
 
-sudo pacman -S alsa-utils
+# set swap
+## add resume=<UUID> as kernel paramenter to grub
+
+# remove sparse file not alled warning on grub on btrfs
+## GRUB_SAVEDEFAULT=false -> /etc/default/grub
+## sudo update-grub
+
+
+# vim stuff
+##set as default editor
 pacaur -S vundle
-pacman -S flake8
-sudo pacman -S flake8
+
+# sound stuff
+sudo pacman -S alsa-utils
+pacaur -S playerctl
+
+# power management optimisation
+pacaur -S linux-nvme
 sudo pacman -S intel-ucode
-pacaur -S bcwc-pcie-git
-sudo pacman -S msr
-pacaur -S powerstat
-pacaur -S --skippgpcheck linux-macbook
 sudo pacman -S tlp
 sudo pacman -S lm_sensors
-sudo pacman -S xf86-video-intel
-sudo pacman -S pbzip2
-sudo pacman -S libreoffice
-sudo pacman -S dropbox
-sudo pacman -S infinality-bundle
-sudo pacman -S playerctl
-pacaur -S playerctl
-sudo pacman -S feh
-pacman -S infinality-bundle-fonts
-sudo pacman -S infinality-bundle-fonts
-sudo pacman -S gnome-icon-theme-full
-pacaur -S gnome-icon-theme-full
-sudo pacman -S arc-gtk-theme
-pacaur -S arc-gtk-theme-git
-sudo pacman -S arc-gtk
-sudo pacman -S arc-gtk-theme
-pacaur -S moka-icon-theme-git
-sudo pacman -S rofi
-sudo pacman -S i3blocks
-pacaur -S i3blocks
-pacaur -S antigen
+sudo pacman -S powertop
+sudo pacman -S acpi
+
+# ZSH shell stuff
+sudo pacman -S zsh
+pacaur -S antigen-git
 pacaur -S python-powerline-git
 sudo pacman -S powerline-fonts
-pacaur -S powerline
-sudo pacman -S skype
-pacaur -S skype
-pacaur -S broadcom-wl
-pacaur -S broadcom-wl-dkms
-pacaur -S linux48-broadcom-wl
-sudo pacman -S scratchpad
-pacaur -S scratchpad
-sudo pacman -S xcursor-themes
-sudo pacman -S acpi
-sudo pacman -S jq
-sudo pacman -S curl
-sudo pacman -S redshift
-pacaur -S mendeleydesktop
-sudo pacman -S ttf-font-awesome
+
+# UI stuff
 pacaur -S ttf-font-awesome
 pacaur -S slingshot-launcher-bzr
 pacaur -S plank-bzr
@@ -57,37 +38,61 @@ pacaur -S plank-theme-pantheon-bzr
 pacaur -S plank-theme-arc
 pacaur -S urxvt-fullscreen
 pacaur -S urxvt-tabbedex
+sudo pacman -S xcursor-themes
+sudo pacman -S redshift
+sudo pacman -S feh
+pacaur -S arc-gtk-theme
+pacaur -S moka-icon-theme-git
+pacaur -S i3blocks
+
+# dmenu replacement for i3
+pacaur -S rofi
+
+# ??
 sudo pacman -S socat
 sudo pip3 install pyuv
+sudo pacman -S flake8
+sudo pacman -S jq
+
+# utilities
+pacaur -S icdiff
+sudo pacman -S pbzip2
+sudo pacman -S curl
+sudo pacman -S wget
 
 # chrome
 sudo pacman -S yaourt
 yaourt google-chrome
 
+# software
+sudo pacman -S dropbox
+sudo pacman -S libreoffice
+pacaur -S skype
+pacaur -S mendeleydesktop
+pacaur -S xournal
+pacaur -S atom
 
 # infinality
-sudo echo "[infinality-bundle]
-Server = http://bohoomil.com/repo/$arch" >> /etc/pacman.conf
-pacman-key -r keyid 962DDE58
-sudo pacman-key -r keyid AE6866C7962DDE58
-sudo pacman-key -f keyid AE6866C7962DDE58
-sudo pacman-key --lsign-key keyid AE6866C7962DDE58
-sudo pacman -Syyu
-sudo pacman -S infinality-bundle
+sudo pacman-key -r C1A60EACE707FDA5
+sudo pacman-key --lsign-key C1A60EACE707FDA5
+## add 'keyring /etc/pacman.d/gnupg/pubring.gpg' to ~/.gnupg/gpg.conf
+yaourt -S cairo-infinality fontconfig-infinality freetype2-infinality
+
+# set lcd filter
+cd /etc/fonts/conf.d/
+sudo ln -s ../conf.avail/11-lcdfilter-default.conf
+
 # add font package according to arch wiki
 ## add config
 # https://wiki.archlinux.org/index.php/Infinality#Infinality-bundle
+# https://wiki.archlinux.org/index.php/font_configuration
+https://forum.manjaro.org/t/font-rendering-how-to-install-infinality-fonts-in-manjaro-linux-v4-0/2860/3
 
 # powersaving stuff
-pacman -S intel_ucode
-pacman -S powertop
-thermald
+sudo pacman -S intel_ucode
+sudo pacman -S powertop
+pacaur -S thermald
 
-# software install
-sudo pacman -S atom
-
-# install antigen
-curl https://cdn.rawgit.com/zsh-users/antigen/v1.3.2/bin/antigen.zsh > ~/.antigen.zsh
 
 # powerline fonts
 git clone https://github.com/powerline/fonts.git
@@ -99,3 +104,4 @@ wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbol
 mv PowerlineSymbols.otf ~/.fonts/
 fc-cache -vf ~/.fonts/
 mkdir -p ~/.config/fontconfig/conf.d && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
