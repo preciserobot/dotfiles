@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 let mapleader=','
-
+let g:powerline_pycmd = 'py3'
 " install vundle with:
 " git clone git@github.com:VundleVim/vundle.vim ~/.vim/bundle/vundle.vim
 

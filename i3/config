@@ -316,7 +316,7 @@ exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.i3/pixelatelock
 exec_always --no-startup-id fix_xcursor
 
 # conky
-exec --no-startup-id conky -c ~/.i3/conky/conky_simple &
+exec --no-startup-id conky -c ~/.i3/conky/conky_simple 
 
 # Plank launchbar (disabled)
 #exec --no-startup-id plank

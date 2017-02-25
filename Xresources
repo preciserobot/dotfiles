@@ -8,24 +8,23 @@
 ! For comments use "!"
 
 ! Global X config
-Xft.dpi: 160
+Xft.dpi: 192
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
 Xft.autohint: false
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
-
 ! Xterm config
 XTerm*pointerColor: #16A085
 XTerm*faceSize: 11
-
 ! URxvt config
 !URxvt.font: xft:DejaVuSansMono:size=18
 !URxvt.font: xft:DejaVui\ Sans\ Mono\ for\ Powerline:size=16
 !URxvt.font: xft:DroidSansMonoforPowerline:size=16
 !URxvt.font: xft:Terminus:size=18
-URxvt*font: xft:Terminus:pixelsize=28,xft:Terminess Powerline:pixelsize=28
+!URxvt*font: xft:Terminus:pixelsize=28,xft:Terminess Powerline:pixelsize=28
+*.font: xft:Inconsolata for Powerline:style=Medium"
 !URxvt*font: xft:Terminus:pixelsize=28,xft:PowerlineSymbols:pixelsize=28
 !URxvt.font: xft:Consolas:size=13, xft:Inconsolata for Powerline
 URxvt.depth: 32
@@ -62,7 +61,7 @@ rofi.bw:                             0
 !rofi.sidebar-mode:                   true
 !rofi.auto-select:                    true
 !
-[200~!! drop in Solarized colorscheme for Xresources/Xdefaults
+! drop in Solarized colorscheme for Xresources/Xdefaults
 
 !!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
 !!--------- ------- ---- -------  ----------- ---------- ----------- -----------

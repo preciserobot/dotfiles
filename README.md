@@ -32,3 +32,10 @@ add generated xrandr command to i3config
 ## install infinality with osx font rendering
 
 ## USB automounter
+
+# edit screen dpi by setting screen dimaensions
+Section "Monitor"
+    Identifier             "<default monitor>"
+    DisplaySize            429 270    # In millimeters
+EndSection
+# or use xrandr --dpi 192
