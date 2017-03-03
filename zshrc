@@ -32,6 +32,15 @@ export ELM_SCALE=2
 # Aliases
 source ~/.aliases.zsh
 
+# Editor
+export EDITOR=vim
+
+# set priority binaries
+export PATH=~/bin:$PATH
+
+# Snappy
+export SNAPPYHOME=${HOME}/snappy
+export SNAPPYWORK=${HOME}/work
 
 # powerline
 powerline-daemon -q

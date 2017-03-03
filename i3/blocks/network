@@ -1,6 +1,6 @@
 #!/bin/bash
 
-device="${BLOCK_INSTANCE:-wlan0}"
+device="${BLOCK_INSTANCE:-wlp60s0}"
 status=$(cat /sys/class/net/${device}/operstate)
 
 URGENT_VALUE=20
