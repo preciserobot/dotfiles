@@ -318,7 +318,7 @@ exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.i3/pixelatelock
 exec_always --no-startup-id fix_xcursor
 
 # touchpad pause when typing and dell keyboard hack (disable PgUp & PgDn)
-exec --no-startup-id syndaemon -i 0.5 -t -K -R -d
+exec --no-startup-id syndaemon -i 1 -t -K -R -d
 exec --no-startup-id xmodmap -e 'keycode 112='
 exec --no-startup-id xmodmap -e 'keycode 117='
 
