@@ -42,6 +42,10 @@ export PATH=~/bin:$PATH
 export SNAPPYHOME=${HOME}/snappy
 export SNAPPYWORK=${HOME}/work
 
+# anaconda
+# export ANACONDA=${HOME}/anaconda
+# export PATH=$ANACONDA/bin:$PATH
+
 # powerline
 powerline-daemon -q
 . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
