@@ -325,11 +325,8 @@ exec --no-startup-id xmodmap -e 'keycode 117='
 
 
 # conky
-<<<<<<< HEAD
 exec --no-startup-id conky -c ~/.i3/conky/conky_simple &
-=======
-exec --no-startup-id conky -c ~/.i3/conky/conky_graphs
->>>>>>> 4ee45a93fdf44c6941bbd916b65b8e1ddc7e5c5a
+#exec --no-startup-id conky -c ~/.i3/conky/conky_graphs
 
 # Plank launchbar (disabled)
 #exec --no-startup-id plank
