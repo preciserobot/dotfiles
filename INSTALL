@@ -45,8 +45,9 @@ pacaur -S arc-gtk-theme
 pacaur -S moka-icon-theme-git
 pacaur -S i3blocks
 
-# dmenu replacement for i3
+# dmenu replacements for i3
 pacaur -S rofi
+pacaur -S cerebro-git
 
 # ??
 sudo pacman -S socat

@@ -52,10 +52,10 @@ rofi.modi:                           run,ssh,window
 rofi.lines:                          5
 rofi.columns:                        1
 rofi.eh:                             2
-rofi.fullscreen:                     true
-rofi.width:                          10
+rofi.fullscreen:                     false
+rofi.width:                          50
 rofi.height:                         30
-rofi.padding:                        400
+rofi.padding:                        10
 rofi.opacity:                        85
 rofi.bw:                             0
 !rofi.sidebar-mode:                   true

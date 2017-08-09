@@ -26,12 +26,25 @@ antigen apply
 
 # HiDPI display scaling
 export QT_AUTO_SCREEN_SCALE_FACTOR=2
-export GDK_SCALE=2
+export GDK_SCALE=1
 export ELM_SCALE=2
 
 # Aliases
 source ~/.aliases.zsh
 
+# Editor
+export EDITOR=vim
+
+# set priority binaries
+export PATH=~/bin:$PATH
+
+# Snappy
+export SNAPPYHOME=${HOME}/snappy
+export SNAPPYWORK=${HOME}/work
+
+# anaconda
+# export ANACONDA=${HOME}/anaconda
+# export PATH=$ANACONDA/bin:$PATH
 
 # powerline
 powerline-daemon -q

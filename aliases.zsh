@@ -27,6 +27,12 @@ alias nrc="npm run commit";
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
+# MIME open
+alias open="mimeopen -M"
+
+# dockViz
+alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
+
 # Files
 alias l="ls -o -hX --group-directories-first"
 alias ll='ls -lGtr'

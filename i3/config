@@ -46,7 +46,6 @@ set $urgent-bg-color      #E53935
 # configured in Xresources
 bindsym $mod+d exec rofi -show run -font "System San Francisco Display 20"
 bindsym $mod+Tab exec rofi -show window -font "System San Francisco Display 20"
-
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -215,6 +214,7 @@ for_window [class="Spotify"] move to workspace $ws7
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Calamares"] floating enable border normal
+for_window [class="Cerebro"] floating enable
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
@@ -304,6 +304,7 @@ exec_always xrdb ~/.Xresources
 # Autostart applications
 ## adjustment of i3bar battery reading (only run at the very first login):
 #exec --no-startup-id /usr/bin/adjust_i3statusconf
+
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b -f -D 5
 exec --no-startup-id nm-applet
@@ -311,13 +312,24 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
-exec --no-startup-id redshift-gtk
-exec_always --no-startup-id sbxkb
+exec --no-startup-id cryptkeeper &
+#exec --no-startup-id redshift-gtk
+exec_always --no-startup-id sbxkb &
 exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.i3/pixelatelock
 exec_always --no-startup-id fix_xcursor
 
+# touchpad pause when typing and dell keyboard hack (disable PgUp & PgDn)
+exec --no-startup-id syndaemon -i 1 -t -K -R -d
+exec --no-startup-id xmodmap -e 'keycode 112='
+exec --no-startup-id xmodmap -e 'keycode 117='
+
+
 # conky
+<<<<<<< HEAD
 exec --no-startup-id conky -c ~/.i3/conky/conky_simple &
+=======
+exec --no-startup-id conky -c ~/.i3/conky/conky_graphs
+>>>>>>> 4ee45a93fdf44c6941bbd916b65b8e1ddc7e5c5a
 
 # Plank launchbar (disabled)
 #exec --no-startup-id plank
