@@ -44,11 +44,13 @@ set $inactive-text-color  #676E7D
 set $urgent-bg-color      #E53935
 #bindsym $mod+d exec rofi -modi 'window,run,ssh,Workspaces:~/.i3/switch_workspace.sh' -show run -lines 3 -eh 2 -width 50 -padding 200 -opacity "85" -bw 0 -font "System San Francisco Display 18"
 # configured in Xresources
-bindsym $mod+d exec rofi -show run -font "System San Francisco Display 16"
+bindsym $mod+d exec rofi -show run -font "System San Francisco Display 20"
+bindsym $mod+Tab exec rofi -show window -font "System San Francisco Display 20"
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
+
 # task switcher
-bindsym $mod+Tab exec rofi -show window -font "System San Francisco Display 16"
+bindsym Mod1+< exec ~/.i3/tab_windows.sh
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -120,9 +122,6 @@ bindsym $mod+Shift+Right move right
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-
-# move whole workspace to other screen
-bindsym $mod+x move workspace to output right
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
@@ -205,9 +204,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 assign [class="Google-chrome"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="Atom"] $ws3
-assign [class="Webstorm"] $ws3
 assign [class="Thunderbird"] $ws4
-assign [class="Evolution"] $ws4
 assign [class="Thunar"] $ws5
 assign [class="Steam"] $ws6
 assign [class="Spotify"] $ws7
@@ -301,7 +298,7 @@ bindsym $mod+9 exec --no-startup-id /home/dbrawand/.i3/pixelatelock
 
 # screen setup
 #exec_always xrandr --dpi 160 --output VIRTUAL1 --off --output eDP1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
-#exec_always xrandr --dpi 160 --output DP-4 --primary --mode 3840x2160 --output HDMI-0 --mode 1920x1200 --output DP-2 --off
+exec_always xrandr --dpi 160 --output DP-4 --primary --mode 3840x2160 --output HDMI-0 --mode 1920x1200 --output DP-2 --off
 exec_always xrdb ~/.Xresources
 
 # Autostart applications
@@ -311,10 +308,10 @@ exec_always xrdb ~/.Xresources
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b -f -D 5
 exec --no-startup-id nm-applet
-#exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-#exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id cryptkeeper &
 #exec --no-startup-id redshift-gtk
 exec_always --no-startup-id sbxkb &
@@ -322,31 +319,29 @@ exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.i3/pixelatelock
 exec_always --no-startup-id fix_xcursor
 
 # touchpad pause when typing and dell keyboard hack (disable PgUp & PgDn)
-#exec --no-startup-id syndaemon -i 1 -t -K -R -d
-#exec --no-startup-id xmodmap -e 'keycode 112='
-#exec --no-startup-id xmodmap -e 'keycode 117='
+exec --no-startup-id syndaemon -i 1 -t -K -R -d
+exec --no-startup-id xmodmap -e 'keycode 112='
+exec --no-startup-id xmodmap -e 'keycode 117='
 
 
 # conky
-#exec --no-startup-id conky -c ~/.i3/conky/conky_simple &
-exec --no-startup-id conky -c ~/.i3/conky/conky_graphs &
+exec --no-startup-id conky -c ~/.i3/conky/conky_simple &
+#exec --no-startup-id conky -c ~/.i3/conky/conky_graphs
 
 # Plank launchbar (disabled)
 #exec --no-startup-id plank
 
 # autostart applications
 #exec --no-startup-id spotify
-exec --no-startup-id google-chrome-stable
+#exec --no-startup-id google-chrome-stable
 #exec --no-startup-id firefox
 #exec --no-startup-id thunderbird
-exec --no-startup-id evolution
-exec --no-startup-id thunar
-exec --no-startup-id urxvt
-exec --no-startup-id dropbox
-exec --no-startup-id webstorm
+#exec --no-startup-id thunar
+#exec --no-startup-id urxvt
+#exec dropbox start
 
 # set wallpaper with feh (instead of nitrogen)
-#exec_always feh --bg-scale /home/dbrawand/Pictures/wallpaper.jpg &
+#exec_always feh --bg-scale /home/dbrawand/Pictures/wallpaper.jpg
 
 ########################
 ## COLOUR/THEME STUFF ##
