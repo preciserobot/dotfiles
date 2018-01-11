@@ -336,14 +336,14 @@ exec --no-startup-id conky -c ~/.i3/conky/conky_graphs &
 
 # autostart applications
 #exec --no-startup-id spotify
-exec --no-startup-id google-chrome-stable
+#exec --no-startup-id google-chrome-stable
 #exec --no-startup-id firefox
 #exec --no-startup-id thunderbird
-exec --no-startup-id evolution
-exec --no-startup-id thunar
+#exec --no-startup-id evolution
+#exec --no-startup-id thunar
 exec --no-startup-id urxvt
 exec --no-startup-id dropbox
-exec --no-startup-id webstorm
+#exec --no-startup-id webstorm
 
 # set wallpaper with feh (instead of nitrogen)
 #exec_always feh --bg-scale /home/dbrawand/Pictures/wallpaper.jpg &
