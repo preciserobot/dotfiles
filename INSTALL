@@ -73,27 +73,15 @@ pacaur -S mendeleydesktop
 pacaur -S xournal
 pacaur -S atom
 
-# infinality
-sudo pacman-key -r C1A60EACE707FDA5
-sudo pacman-key --lsign-key C1A60EACE707FDA5
-## add 'keyring /etc/pacman.d/gnupg/pubring.gpg' to ~/.gnupg/gpg.conf
-yaourt -S cairo-infinality fontconfig-infinality freetype2-infinality
-
+# NICE FONTS
+# don't use infinality anymore (dead) see here for nice fonts
+# https://gist.github.org/cryzed/e002e7057435f02cc7894b9e748c5671
 # set lcd filter
 cd /etc/fonts/conf.d/
 sudo ln -s ../conf.avail/11-lcdfilter-default.conf
 
-# add font package according to arch wiki
-## add config
-# https://wiki.archlinux.org/index.php/Infinality#Infinality-bundle
-# https://wiki.archlinux.org/index.php/font_configuration
-https://forum.manjaro.org/t/font-rendering-how-to-install-infinality-fonts-in-manjaro-linux-v4-0/2860/3
-
 # powersaving stuff
-sudo pacman -S intel_ucode
-sudo pacman -S powertop
 pacaur -S thermald
-
 
 # powerline fonts
 git clone https://github.com/powerline/fonts.git
