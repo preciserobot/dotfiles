@@ -1,6 +1,7 @@
 # dotfiles
 
-This repo contains my dotfiles for Manjaro-i3 on a MacBook Pro Retina
+This repo contains my dotfiles for Manjaro-i3.
+The current version is adapted to the 6th gen ThinkPad X1 Carbon (WQHD).
 
 ## CAUTION
 Do not clone this repo as your home directory.
@@ -8,10 +9,10 @@ It might overwrite/substitute existing configurations
 which are essential to the normal fucntioning of your
 linux distribution and/or windows manager.
 
-## Kernel
-install 4.8 kernel and headers for wifi
-
 # Notes
+
+## S3 support
+see https://delta-xi.net/#506 or the INSTALL file
 
 ## add server to pacman
 echo "XYZ" >> /etc/pacman.conf
@@ -28,14 +29,3 @@ sudo pacman-mirrors -g
 arandr
 save as
 add generated xrandr command to i3config
-
-## install infinality with osx font rendering
-
-## USB automounter
-
-# edit screen dpi by setting screen dimaensions
-Section "Monitor"
-    Identifier             "<default monitor>"
-    DisplaySize            429 270    # In millimeters
-EndSection
-# or use xrandr --dpi 192

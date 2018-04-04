@@ -1,5 +1,5 @@
 # Antigen plugin manager
-source /usr/share/zsh/scripts/antigen/antigen.zsh
+source /usr/share/zsh/share/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -39,8 +39,8 @@ export EDITOR=vim
 export PATH=~/bin:$PATH
 
 # Snappy
-export SNAPPYHOME=${HOME}/snappy
-export SNAPPYWORK=${HOME}/work
+# export SNAPPYHOME=${HOME}/snappy
+# export SNAPPYWORK=${HOME}/work
 
 # anaconda
 # export ANACONDA=${HOME}/anaconda
@@ -49,3 +49,5 @@ export SNAPPYWORK=${HOME}/work
 # powerline
 powerline-daemon -q
 . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
+eval $(thefuck --alias)

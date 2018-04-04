@@ -1,7 +1,7 @@
 #!/bin/sh
 
-USER=david.brawand@gmail.com
-PASS=ripqerlntwxqiyxo
+USER=username
+PASS=password
 
 COUNT=`curl -su $USER:$PASS https://mail.google.com/mail/feed/atom || echo "<fullcount>unknown number of</fullcount>"`
 COUNT=`echo "$COUNT" | grep -oPm1 "(?<=<fullcount>)[^<]+" `

@@ -50,7 +50,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'aaronbieber/vim-quicktask'
 
 " Directory/file tree
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 
 " Ctrl-P Fullzy file finder
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -92,7 +92,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 syntax on
 set t_Co=256
 set cursorline
-colorscheme zenburn
+" colorscheme zenburn
 let g:airline_theme='onehalfdark'
 " lightline
 " " let g:lightline.colorscheme='onehalfdark'

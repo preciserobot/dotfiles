@@ -6,6 +6,16 @@
 ## GRUB_SAVEDEFAULT=false -> /etc/default/grub
 ## sudo update-grub
 
+# install pacaur
+mkdir ~/tmp
+cd ~/tmp/
+gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+makepkg -i PKGBUILD --noconfirm
+curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+makepkg -i PKGBUILD --noconfirm
+cd
+rm -r ~/tmp
 
 # vim stuff
 ##set as default editor
@@ -15,7 +25,37 @@ pacaur -S vundle
 sudo pacman -S alsa-utils
 pacaur -S playerctl
 
-# power management optimisation
+# increase max watched files (uses ~1kb of memory per watched file)
+echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
+
+# S3 support for ThinkPad Carbon X1 (https://delta-xi.net/#506)
+pacaur -S cpio iasl
+cat /sys/firmware/acpi/tables/DSDT > dsdt.aml
+iasl -d dsdt.aml
+wget https://delta-xi.net/download/X1C6_S3_DSDT.patch
+patch --verbose < X1C6_S3_DSDT.patch
+iasl -ve -tc dsdt.dsl
+mkdir -p kernel/firmware/acpi
+cp dsdt.aml kernel/firmware/acpi
+find kernel | cpio -H newc --create > acpi_override
+cp acpi_override /boot
+## change/append /etc/default/grub and run update-grub
+GRUB_CMDLINE_LINUX_DEFAULT="mem_sleep_default=deep"
+GRUB_EARLY_INITRD_LINUX_CUSTOM=acpi_override
+## test ACPI support
+dmesg | grep ACPI | grep supports
+cat /sys/power/mem_sleep
+systemctl suspend -i
+
+# S0i3 support (use less power)
+## enable Thunderbolt BIOS assist mode
+## set kernel parameter and run update-grub
+GRUB_CMDLINE_LINUX_DEFAULT="acpi.ec_no_wakeup=1"
+## unbind or set the memory card reader to auto power (reduces power consumption in S0i3)
+echo "2-3" | sudo tee /sys/bus/usb/drivers/usb/unbind
+echo "auto" | sudo tee /sys/bus/usb/devices/2-3/power/control
+
+# other power management optimisation
 pacaur -S linux-nvme
 sudo pacman -S intel-ucode
 sudo pacman -S tlp
@@ -26,8 +66,7 @@ sudo pacman -S acpi
 # ZSH shell stuff
 sudo pacman -S zsh
 pacaur -S antigen-git
-pacaur -S python-powerline-git
-sudo pacman -S powerline-fonts
+pacaur -S powerline powerline-fonts powerline-vim-git python-powerline-git
 
 # UI stuff
 pacaur -S ttf-font-awesome
@@ -61,10 +100,6 @@ sudo pacman -S pbzip2
 sudo pacman -S curl
 sudo pacman -S wget
 
-# chrome
-sudo pacman -S yaourt
-yaourt google-chrome
-
 # software
 sudo pacman -S dropbox
 sudo pacman -S libreoffice
@@ -72,6 +107,11 @@ pacaur -S skype
 pacaur -S mendeleydesktop
 pacaur -S xournal
 pacaur -S atom
+pacaur -S jre8-openjdk
+pacaur -S tmux
+pacaur -S system-san-francisco-font-git ttf-mac-fonts
+pacaur -S albert
+pacaur -S google-chrome
 
 # NICE FONTS
 # don't use infinality anymore (dead) see here for nice fonts
@@ -93,4 +133,3 @@ wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbol
 mv PowerlineSymbols.otf ~/.fonts/
 fc-cache -vf ~/.fonts/
 mkdir -p ~/.config/fontconfig/conf.d && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-
