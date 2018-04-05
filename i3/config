@@ -13,7 +13,7 @@ new_float normal
 
 # Hide borders
 hide_edge_borders none
-# hide_edge_borders both
+#hide_edge_borders both
 
 # change borders
 bindsym $mod+u border none
@@ -63,14 +63,14 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-# Media player controls (does this work?)
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# Media player controls (not present on ThinkPads)
+# bindsym XF86AudioPlay exec playerctl play
+# bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -78,7 +78,7 @@ bindsym $mod+F2 exec palemoon
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F10 exec pavucontrol
 bindsym $mod+Shift+F10 exec sudo alsactl store
-# bindsym $mod+F3 exec ranger
+bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
@@ -314,9 +314,9 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-#exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id cryptkeeper &
-#exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk
 exec_always --no-startup-id sbxkb &
 exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.i3/pixelatelock
 exec_always --no-startup-id fix_xcursor
@@ -325,7 +325,6 @@ exec_always --no-startup-id fix_xcursor
 #exec --no-startup-id syndaemon -i 1 -t -K -R -d
 #exec --no-startup-id xmodmap -e 'keycode 112='
 #exec --no-startup-id xmodmap -e 'keycode 117='
-
 
 # conky
 #exec --no-startup-id conky -c ~/.i3/conky/conky_simple &
@@ -346,7 +345,7 @@ exec --no-startup-id dropbox
 #exec --no-startup-id webstorm
 
 # set wallpaper with feh (instead of nitrogen)
-#exec_always feh --bg-scale /home/dbrawand/Pictures/wallpaper.jpg &
+exec_always feh --bg-scale /home/dbrawand/Pictures/wallpaper.jpg &
 
 ########################
 ## COLOUR/THEME STUFF ##
