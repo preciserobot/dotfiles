@@ -60,9 +60,9 @@ ${goto 40}${memgraph 50}
 ${goto 40}SSD ${font Bitstream Vera Sans:bold:size=10}${alignr}${fs_free /} / ${fs_size /}${font}
 ${goto 40}${fs_bar 4 /}
 
-${goto 40}Down ${downspeed wlp3s0}/s ${alignr}Up ${upspeed wlp3s0}/s
-${goto 40}${downspeedgraph wlp3s0 50,200} ${alignr}${upspeedgraph wlp3s0 50,200}
-${goto 40}Total ${totaldown wlp3s0} ${alignr}Total ${totalup wlp3s0}
+${goto 40}Down ${downspeed wlp2s0}/s ${alignr}Up ${upspeed wlp2s0}/s
+${goto 40}${downspeedgraph wlp2s0 50,200} ${alignr}${upspeedgraph wlp2s0 50,200}
+${goto 40}Total ${totaldown wlp2s0} ${alignr}Total ${totalup wlp2s0}
 
 ## UTF-8 not printed correctly
 ##${color white}WEATHER ${hr 1}${color}

@@ -99,10 +99,11 @@ pacaur -S icdiff
 sudo pacman -S pbzip2
 sudo pacman -S curl
 sudo pacman -S wget
+pacaur -S net-tools
 
 # software
-sudo pacman -S dropbox
-sudo pacman -S libreoffice
+pacaur -S dropbox
+pacaur -S libreoffice
 pacaur -S skype
 pacaur -S mendeleydesktop
 pacaur -S xournal
