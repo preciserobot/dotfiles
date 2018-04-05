@@ -62,6 +62,7 @@ sudo pacman -S tlp
 sudo pacman -S lm_sensors
 sudo pacman -S powertop
 sudo pacman -S acpi
+sudo pacman -S org-xbacklight
 
 # ZSH shell stuff
 sudo pacman -S zsh
