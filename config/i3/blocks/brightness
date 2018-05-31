@@ -27,7 +27,7 @@ elif [[ "${METHOD}" = "kernel" ]]; then
   maxBrightness=$(cat /sys/class/backlight/${device}/max_brightness)
   curBrightness=$(cat /sys/class/backlight/${device}/brightness)
 elif [[ "${METHOD}" = "xbacklight" ]]; then
-  curBrightness=$(xbacklight -get)
+  curBrightness=$(printf "%.f" `xbacklight -get`)
 fi
 
 if [[ "${curBrightness}" -le 0 ]]; then

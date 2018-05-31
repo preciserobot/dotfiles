@@ -32,8 +32,9 @@ export ELM_SCALE=2
 # Aliases
 source ~/.aliases.zsh
 
-# Editor
+# default Editor and Browser
 export EDITOR=vim
+export BROWSER="firefox-developer-edition"
 
 # set priority binaries
 export PATH=~/bin:$PATH

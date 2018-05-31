@@ -1,16 +1,3 @@
-Desktop/
-Documents/
-Downloads/
-Dropbox/
-Pictures/
-Videos/
-dev/
-homebase/
-snappy/
-
-# files in config have to explicity added to avoid cluttering
-.config/*
-
 # exclude keys
 .gnupg/*
 .ssh/*
@@ -45,7 +32,6 @@ snappy/
 .steam*
 .thunderbird/*
 .gnome/*
-.vim/*
 .cache/*
 .atom/*
 .fehbg/*

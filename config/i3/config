@@ -15,7 +15,7 @@ new_float normal
 hide_edge_borders none
 #hide_edge_borders both
 
-# change borders
+# chang
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
@@ -23,16 +23,19 @@ bindsym $mod+n border normal
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font xft:Noto Sans 10
+#font pango:mono 12
 font pango:System San Francisco Display 10
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec urxvt
+# terminal
+set $term urxvt
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_recency
@@ -87,34 +90,37 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+h			focus left
+bindsym $mod+j			focus down
+bindsym $mod+k			focus up
+bindsym $mod+l			focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+bindsym $mod+Shift+h		move left 30
+bindsym $mod+Shift+j		move down 30
+bindsym $mod+Shift+k		move up 30
+bindsym $mod+Shift+l		move right 30
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# DEPRECATED moving with cursor keys
+#bindsym $mod+Left   focus left
+#bindsym $mod+Down   focus down
+#bindsym $mod+Up     focus up
+#bindsym $mod+Right  focus right
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
+
+# instant resize
+bindsym $mod+Shift+y		resize shrink width 10 px or 10ppt
+bindsym $mod+Shift+u		resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+i		resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+o		resize grow width 10 px or 10 ppt
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -125,9 +131,8 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 bindsym $mod+x move workspace to output right
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+bindsym $mod+apostrophe split h;exec notify-send 'tile horizontally'
+bindsym $mod+slash      split v;exec notify-send 'tile vertically'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -160,6 +165,12 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
+# BOSS KEY
+bindsym $mod+Shift+Delete	exec lmc truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
+
+# My wiki
+bindsym $mod+Shift+Return 	exec $term -e vim ~/vimwiki/index.wiki
+
 # Workspace names
 set $ws1 1:1 
 set $ws2 2:2 
@@ -169,6 +180,13 @@ set $ws5 5:5 
 set $ws6 6:6 
 set $ws7 7:7 
 set $ws8 8:8 
+
+# move workspace to beginning or end
+bindsym $mod+Home		workspace $ws1
+bindsym $mod+Shift+Home		move container to workspace $ws1
+bindsym $mod+End		workspace $ws8
+bindsym $mod+Shift+End		move container to workspace $ws8
+bindsym $mod+backslash		workspace back_and_forth
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -308,6 +326,8 @@ exec_always xrdb ~/.Xresources
 ## adjustment of i3bar battery reading (only run at the very first login):
 #exec --no-startup-id /usr/bin/adjust_i3statusconf
 
+#exec --no-startup-id dunst
+exec --no-startup-id unclutter
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b -f -D 5
 exec --no-startup-id nm-applet
@@ -340,12 +360,12 @@ exec --no-startup-id conky -c ~/.i3/conky/conky_graphs &
 #exec --no-startup-id thunderbird
 #exec --no-startup-id evolution
 #exec --no-startup-id thunar
-exec --no-startup-id urxvt
+#exec --no-startup-id urxvt
 exec --no-startup-id dropbox
 #exec --no-startup-id webstorm
 
-# set wallpaper with feh (instead of nitrogen)
-exec_always feh --bg-scale /home/dbrawand/Pictures/wallpaper.jpg &
+# set wallpaper with feh (or use nitrogen)
+exec_always --no-startup-id feh --bg-scale ~/.config/wall.jpg
 
 ########################
 ## COLOUR/THEME STUFF ##
