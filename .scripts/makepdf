@@ -1,0 +1,14 @@
+#!/bin/bash
+# Creates a PDF from Markdown or TeX
+
+file=$(basename "$1")
+ext="${file##*.}"
+base="${file%.*}"
+
+echo $ext
+
+case "$ext" in
+	rmd) echo "require(rmarkdown); render('$file')" | R --vanilla ;;
+	tex) xelatex "$file" ;;
+	md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
+esac

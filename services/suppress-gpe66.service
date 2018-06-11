@@ -1,8 +1,0 @@
-[Unit]
-Description=Diables GPE66, which causes a ACPI storm on MacBooks and prevents low power states on CPU
-
-[Service]
-ExecStart=/usr/bin/bash -c 'echo "disable" > /sys/firmware/acpi/interrupts/gpe66'
-
-[Install]
-WantedBy=multi-user.target

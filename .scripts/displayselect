@@ -1,0 +1,17 @@
+#!/bin/sh
+
+choices="laptop\ndual-right\ndual-above\nmirror\nhdmi\nManual selection"
+
+chosen=$(echo -e "$choices" | dmenu -i)
+
+case "$chosen" in
+	dual-right) xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1 ;;
+	dual-above) xrandr --output eDP1 --auto --output HDMI1 --auto --above eDP1 ;;
+	mirror) xrandr --output eDP1 --auto --output HDMI1 --auto --same-as eDP1 ;;
+	laptop) xrandr --output eDP1 --auto --output HDMI1 --off ;;
+	hdmi) xrandr --output HDMI1 --auto --output eDP1 --off ;;
+	"Manual selection") arandr ;;
+esac
+
+# Relaunch polybar if there was a selection.
+[ "$chosen" == "" ] || polybar_launch

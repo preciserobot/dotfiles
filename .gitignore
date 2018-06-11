@@ -38,3 +38,4 @@
 .macromedia/*
 .mozilla/*
 .thumbnails/*
+.vim/plugged/*
