@@ -3,6 +3,10 @@
 .ssh/*
 .pki/*
 
+# ignore caches and history
+cache.*
+history.*
+
 # ignore gtk config managed by lxappearance
 .gtkrc-2.0
 
