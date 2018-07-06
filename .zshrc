@@ -43,6 +43,9 @@ export BROWSER="firefox-developer-edition"
 export PATH=~/bin:$PATH
 export PATH=~/.scripts:$PATH
 
+# LaTeX Live preview with vim
+export PATH=~/.vim/plugged/vim-live-latex-preview/bin:$PATH
+
 # Snappy/SQVD
 export SNAPPYHOME=${HOME}/snappy
 export SNAPPYWORK=${HOME}/work

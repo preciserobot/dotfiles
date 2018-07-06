@@ -34,8 +34,13 @@ Plug 'tmhedberg/SimpylFold' " folding for python code
 Plug 'ctrlpvim/ctrlp.vim' " Ctrl-P Fullzy file finder
 Plug 'bling/vim-bufferline' " Show buffers in statusline
 
+Plug 'ying17zi/vim-live-latex-preview' "LaTeX live previews
+"Plug 'xuhdev/vim-latex-live-preview' "another latex live preview
+
 " Initialize plugin system
 call plug#end()
+
+"let g:livepreview_previewer = 'mupdf'
 
 filetype plugin indent on  " detect file types
 
@@ -214,6 +219,9 @@ set sidescroll=10
 " line numbers and hidden characters
 set list " displays hidden chars (line-endings, tabs etc...)
 set number " display line numbers
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+"set listchars=tab:>-     " > is shown at the beginning, - throughout
+
 set relativenumber  " relative line numbers
 function! NumberToggle()
     if(&relativenumber == 1)
@@ -248,6 +256,8 @@ map <Space><Tab> <Esc>/<++><Enter>"_c4l
 inoremap ;gui <++>
 
 """LATEX
+autocmd FileType tex set wrap
+autocmd FileType tex set linebreak
 " Word count:
 autocmd FileType tex map <F3> :w !detex \| wc -w<CR>
 autocmd FileType tex inoremap <F3> <Esc>:w !detex \| wc -w<CR>
