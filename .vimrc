@@ -35,7 +35,6 @@ Plug 'ctrlpvim/ctrlp.vim' " Ctrl-P Fullzy file finder
 Plug 'bling/vim-bufferline' " Show buffers in statusline
 
 Plug 'ying17zi/vim-live-latex-preview' "LaTeX live previews
-"Plug 'xuhdev/vim-latex-live-preview' "another latex live preview
 
 " Initialize plugin system
 call plug#end()
@@ -134,6 +133,18 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
+
+" movement remap in case of wrapped lines
+"nnoremap j gj
+"nnoremap k gk
+"vnoremap j gj
+"vnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
 
 " Use UNIX (\n) line endings for new files
 autocmd BufNewFile *.py,*.pyw,*.c,*.h,*.html,*.js,*.jsx set fileformat=unix
