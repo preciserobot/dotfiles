@@ -252,8 +252,9 @@ autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " WRITE WRITE WRITE WRITE
 " WRITE WRITE WRITE WRITE
 
-map <F3> :!wc <C-R>%<CR>  " word counts
-map <F6> :setlocal spell! spelllang=en_uk<CR>  " spell checker
+" word counts and spell checker
+map <F3> :!wc <C-R>%<CR>
+map <F6> :setlocal spell! spelllang=en_gb spellfile=/keybase/private/preciserobot/spell/en.utf-8.add<CR>
 
 " LaTeX stuff
 map <F9> :vsp<space>~/Documents/LaTeX/uni.bib<CR>  " open bibliography
