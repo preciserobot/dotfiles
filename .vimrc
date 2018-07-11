@@ -44,6 +44,7 @@ Plug 'bling/vim-bufferline' " Show buffers in statusline
 Plug 'ying17zi/vim-live-latex-preview' "LaTeX live previews
 Plug 'vim-pandoc/vim-pandoc' " pandoc plugin (eg. for RMarkdown)
 Plug 'vim-pandoc/vim-pandoc-syntax' " pandoc syntax
+Plug 'vim-pandoc/vim-rmarkdown' " Rmarkdown support
 "Plug 'lervag/vimtex' " Full featured LaTeX editing package
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }  " asynchronous autocompletion
