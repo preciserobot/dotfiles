@@ -1,6 +1,7 @@
 
 let mapleader=','
 set nocompatible
+set hidden
 
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
@@ -8,42 +9,58 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive' " git command tool
 Plug 'airblade/vim-gitgutter' " git diff in gutter
-
+Plug 'jiangmiao/auto-pairs'  " automatically close brackets etc.
 Plug 'tpope/vim-surround' " surround motion
-Plug 'tpope/vim-commentary' " Comment stuff
+"Plug 'tpope/vim-commentary' " Comment stuff
 Plug 'terryma/vim-multiple-cursors' " Sublime style multiple cursors
-
-" Plug 'itchyny/lightline.vim' " Lightline Status bar
 Plug 'vim-airline/vim-airline' " powerline-style status Bar
 Plug 'vim-airline/vim-airline-themes' " airline-themes
-
+Plug 'airblade/vim-gitgutter'  " git annotations in gutter
+Plug 'altercation/vim-colors-solarized'  " nice solarized colorscheme
+Plug 'trevordmiller/nova-vim' " nova color scheme
 Plug 'flazz/vim-colorschemes' " plenty of colorschemes
+Plug 'gertjanreynaert/cobalt2-vim-theme' " Cobalt2 Theme
 Plug 'dylanaraps/wal.vim' " pyWAL based colourschemes
-
 Plug 's3rvac/AutoFenc' " auto file encoding detection
 Plug 'vim-syntastic/syntastic' "Syntax checker in statusline
-
+Plug 'w0rp/ale' " async lint engine
+Plug 'mattn/emmet-vim' " Emmet
+Plug 'sheerun/vim-polyglot' " support for multiple languages
+"Plug 'mxw/vim-jsx' " JSX highlighting and indenting
+"Plug 'pangloss/vim-javascript' " Improved javascript highlighting and indenting
+Plug 'majutsushi/tagbar' " class viewer <F8>
+Plug 'Yggdroot/indentLine' " Line indenting
 Plug 'wikitopian/hardmode' " Yes I'm hardcore
-
 Plug 'vimwiki/vimwiki' " vim-wiki
 Plug 'aaronbieber/vim-quicktask' " vim task list
 Plug 'junegunn/goyo.vim' " distraction free writing
-
 Plug 'scrooloose/nerdtree' " Directory/file tree
+Plug 'Xuyuanp/nerdtree-git-plugin' " git annotations for nerdtree
+Plug 'scrooloose/nerdcommenter' " commenting of lines and blocks
 Plug 'tmhedberg/SimpylFold' " folding for python code
 Plug 'ctrlpvim/ctrlp.vim' " Ctrl-P Fullzy file finder
+Plug 'vim-ctrlspace/vim-ctrlspace' " buffer/window manager
 Plug 'bling/vim-bufferline' " Show buffers in statusline
-
 Plug 'ying17zi/vim-live-latex-preview' "LaTeX live previews
+Plug 'vim-pandoc/vim-pandoc' " pandoc plugin (eg. for RMarkdown)
+Plug 'vim-pandoc/vim-pandoc-syntax' " pandoc syntax
+"Plug 'lervag/vimtex' " Full featured LaTeX editing package
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }  " asynchronous autocompletion
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'zchee/deoplete-go'  " golang autocompletion
+Plug 'zchee/deoplete-jedi'  " Python autocompletion
 
-" Initialize plugin system
-call plug#end()
+call plug#end()  " Initialize plugin system
 
-"let g:livepreview_previewer = 'mupdf'
-
+let g:deoplete#enable_at_startup = 1  " autocompletion
 filetype plugin indent on  " detect file types
-
 set laststatus=2  " always show statusline
+nmap <F8> :TagbarToggle<CR>  " toggle classviewer
 
 " distraction free writing
 map <F10> :Goyo<CR>
@@ -251,6 +268,17 @@ autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " WRITE WRITE WRITE WRITE
 " WRITE WRITE WRITE WRITE
 " WRITE WRITE WRITE WRITE
+
+" auto templates
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.sh 0r ~/.vim/templates/sh/template.sh
+    autocmd BufNewFile *.tex 0r ~/.vim/templates/tex/article.tex
+    autocmd BufNewFile *.rmd,*.md,*.Rmd 0r ~/.vim/templates/rmd/template.rmd
+    autocmd BufNewFile *.go 0r ~/.vim/templates/go/template.go
+    autocmd BufNewFile *.py 0r ~/.vim/templates/py/template.py
+  augroup END
+endif
 
 " word counts and spell checker
 map <F3> :!wc <C-R>%<CR>

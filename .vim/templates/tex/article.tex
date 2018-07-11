@@ -1,0 +1,49 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    backend=biber,
+    style=authoryear,
+    natbib=true,
+    url=false,
+    doi=true,
+    eprint=false
+]{biblatex}
+\addbibresource{library.bib}
+\usepackage[english]{babel}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi)
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text.
+\usepackage[sfdefault,scaled=.85]{FiraSans}
+\usepackage{newtxsf}
+\usepackage[margin=1in,headheight=13.6pt]{geometry}
+\usepackage{graphicx}
+\graphicspath{{./img/}}
+\usepackage[rightcaption]{sidecap}
+
+\usepackage{tikz}
+\usetikzlibrary{timeline}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{<++>} % chktex 8
+\rhead{<++>}
+\rfoot{Page \thepage}
+\lfoot{\today}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+% article title and subtitle
+\noindent
+\huge <++>\\
+\normalsize <++>
+% ===============================================
+
+\section{<++>}
+<++>
+
+\newpage
+\printbibliography%
+
+\end{document}
+

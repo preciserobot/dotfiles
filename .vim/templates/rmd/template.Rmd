@@ -1,0 +1,10 @@
+---
+title: "<++>"
+author: "<++>"
+date: "<++>"
+output:
+  pdf_document:
+    toc: true
+    highlight: zenburn
+---
+<++>
