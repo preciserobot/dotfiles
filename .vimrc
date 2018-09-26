@@ -58,7 +58,21 @@ Plug 'zchee/deoplete-jedi'  " Python autocompletion
 
 call plug#end()  " Initialize plugin system
 
+" Deoplete autocompletion 
 let g:deoplete#enable_at_startup = 1  " autocompletion
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" Default to C-x C-o to activate C-n / C-P to scroll
+" deoplete tab-complete
+" Disable this for not overwriting <cr> to have delimitMate_expand_cr work
+" correctly
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+  "return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  "endfunction
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" filetypes and statusline
 filetype plugin indent on  " detect file types
 set laststatus=2  " always show statusline
 nmap <F8> :TagbarToggle<CR>  " toggle classviewer
@@ -151,6 +165,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
+"map <C-h> <C-w>h
+"map <C-j> <C-w>j
+"map <C-k> <C-w>k
+"map <C-l> <C-w>l
 
 " movement remap in case of wrapped lines
 "nnoremap j gj

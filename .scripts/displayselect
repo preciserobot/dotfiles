@@ -14,4 +14,4 @@ case "$chosen" in
 esac
 
 # Relaunch polybar if there was a selection.
-[ "$chosen" == "" ] || polybar_launch
+#[ "$chosen" == "" ] || polybar_launch

@@ -395,21 +395,16 @@ set $base0F #fcc09e
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-
-
+	#i3bar_command i3bar -t
 	#status_command i3status
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
+	## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+	#	tray_output primary
 	bindsym button4 nop
 	bindsym button5 nop
 	font pango:System San Francisco Display 10.5
 	strip_workspace_numbers yes
-
 	colors {
 	    separator $base03
 	    background $base01
@@ -419,7 +414,6 @@ bar {
 	    inactive_workspace $base01 $base01 $base03
 		urgent_workspace $base08 $base08 $base07
     }
-
 }
 
 # hide/unhide i3status bar
