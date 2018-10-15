@@ -3,21 +3,21 @@ alias gi="git init"
 alias gs="git status"
 alias gd="git diff"
 alias gdh="git diff HEAD"
-alias gc="git clone $1 $2"
-alias gcm="git commit -m "$1""
+alias gcl="git clone"
+alias gc="git commit"
 alias gaa="git add -A ."
-alias gpo="git push origin $1"
+alias gpo="git push origin"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glo="git log --oneline"
 alias grhh="git reset --hard HEAD"
-alias gcp="git cherry-pick $1"
+alias gcp="git cherry-pick"
 
 # npm
 alias ni="npm install";
 alias nis="npm i -S "
 alias nid="npm i -D "
 alias nig="npm i -g "
-alias nr="npm run $1";
+alias nr="npm run";
 alias nrs="npm run start";
 alias nrb="npm run build";
 alias nrt="npm run test";
