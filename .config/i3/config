@@ -72,6 +72,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 # other thinkpad keys
 bindsym XF86Display exec --no-startup-id '/home/dbrawand/.scripts/displayselect'
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+bindsym XF86Tools exec "manjaro-settings-manager"
 
 # Media player controls (not present on ThinkPads)
 # bindsym XF86AudioPlay exec playerctl play
