@@ -68,7 +68,10 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
-bindsym XF86Display exec '~/.scripts/displayselect'
+
+# other thinkpad keys
+bindsym XF86Display exec --no-startup-id '/home/dbrawand/.scripts/displayselect'
+bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
 # Media player controls (not present on ThinkPads)
 # bindsym XF86AudioPlay exec playerctl play
