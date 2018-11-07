@@ -1,4 +1,4 @@
-#! /usr/local/env python
+#!/usr/bin/env python
 
 __author__ = "<++>"
 __copyright__ = "<++>"
