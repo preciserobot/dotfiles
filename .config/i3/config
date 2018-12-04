@@ -68,7 +68,11 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
-bindsym XF86Display exec '~/.scripts/displayselect'
+
+# other thinkpad keys
+bindsym XF86Display exec --no-startup-id '/home/dbrawand/.scripts/displayselect'
+bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+bindsym XF86Tools exec "manjaro-settings-manager"
 
 # Media player controls (not present on ThinkPads)
 # bindsym XF86AudioPlay exec playerctl play
@@ -340,7 +344,7 @@ exec --no-startup-id pasystray &
 exec --no-startup-id cryptkeeper &
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id sbxkb &
-exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.i3/pixelatelock
+exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.scripts/screenlock
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id run_keybase &
 
@@ -395,21 +399,16 @@ set $base0F #fcc09e
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-
-
+	#i3bar_command i3bar -t
 	#status_command i3status
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
+	## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+	#	tray_output primary
 	bindsym button4 nop
 	bindsym button5 nop
 	font pango:System San Francisco Display 10.5
 	strip_workspace_numbers yes
-
 	colors {
 	    separator $base03
 	    background $base01
@@ -419,7 +418,6 @@ bar {
 	    inactive_workspace $base01 $base01 $base03
 		urgent_workspace $base08 $base08 $base07
     }
-
 }
 
 # hide/unhide i3status bar

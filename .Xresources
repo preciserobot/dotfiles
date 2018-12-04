@@ -19,11 +19,13 @@ URxvt*font: xft:Terminus:pixelsize=28,xft:PowerlineSymbols:pixelsize=28
 !URxvt.font: xft:Consolas:size=13, xft:Inconsolata for Powerline
 !*.font: xft:Hack
 !*.font: xft:Office Code Pro
-URxvt.perl-ext-common:                tabbed,fullscreen,resize-font
-URxvt.keysym.F11:                     perl:fullscreen:switch
-URxvt.tabbed.tabbar-fg: 1
-!URxvt.keysym.C-Down:  resize-font:smaller
-!URxvt.keysym.C-Up:    resize-font:bigger
+URxvt.perl-ext-common:   tabbed,fullscreen,resize-font,bell-command,url-select
+URxvt.keysym.F11:        perl:fullscreen:switch
+URxvt.tabbed.tabbar-fg:  1
+URxvt.bell-command:      canberra-gtk-play -i bell
+!URxvt.bell-command:      notify-send -t 1000 "BEEP"
+URxvt.keysym.C-Down:     resize-font:smaller
+URxvt.keysym.C-Up:       resize-font:bigger
 
 
 ! do not scroll with output
