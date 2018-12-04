@@ -14,8 +14,8 @@ XTerm*faceSize: 11
 !URxvt.font: xft:DejaVui\ Sans\ Mono\ for\ Powerline:size=16
 !URxvt.font: xft:DroidSansMonoforPowerline:size=16
 !URxvt.font: xft:Inconsolata for Powerline,xft:PowerlineSymbols,xft:FontAwesome
-URxvt.font: xft:RobotoMono Nerd Font Mono:pixelsize=24
-!URxvt*font: xft:Terminus:pixelsize=28,xft:PowerlineSymbols:pixelsize=28
+!URxvt.font: xft:RobotoMono Nerd Font Mono:pixelsize=24
+URxvt*font: xft:Terminus:pixelsize=28,xft:PowerlineSymbols:pixelsize=28
 !URxvt.font: xft:Consolas:size=13, xft:Inconsolata for Powerline
 !*.font: xft:Hack
 !*.font: xft:Office Code Pro
