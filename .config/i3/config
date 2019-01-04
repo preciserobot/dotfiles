@@ -122,10 +122,10 @@ bindsym $mod+Shift+l		move right 30
 #bindsym $mod+Shift+Right move right
 
 # instant resize
-bindsym $mod+Shift+y		resize shrink width 10 px or 10ppt
-bindsym $mod+Shift+u		resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+i		resize grow height 10 px or 10 ppt
-bindsym $mod+Shift+o		resize grow width 10 px or 10 ppt
+bindsym $mod+Shift+y		resize shrink width 3 px or 3 ppt
+bindsym $mod+Shift+u		resize shrink height 3 px or 3 ppt
+bindsym $mod+Shift+i		resize grow height 3 px or 3 ppt
+bindsym $mod+Shift+o		resize grow width 3 px or 3 ppt
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -235,6 +235,7 @@ assign [class="Thunar"] $ws5
 assign [class="Steam"] $ws6
 assign [class="Spotify"] $ws7
 for_window [class="Spotify"] move to workspace $ws7
+for_window [class="URxvt"] border none
 #assign [class="mpv"] $ws8
 
 # Open specific applications in floating mode
@@ -346,7 +347,7 @@ exec --no-startup-id redshift-gtk
 exec_always --no-startup-id sbxkb &
 exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.scripts/screenlock
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id run_keybase &
+#exec --no-startup-id run_keybase &
 
 # touchpad pause when typing and dell keyboard hack (disable PgUp & PgDn)
 #exec --no-startup-id syndaemon -i 1 -t -K -R -d
@@ -368,7 +369,7 @@ exec --no-startup-id conky -c ~/.i3/conky/conky_graphs &
 #exec --no-startup-id evolution
 #exec --no-startup-id thunar
 #exec --no-startup-id urxvt
-exec --no-startup-id dropbox
+#exec --no-startup-id dropbox
 #exec --no-startup-id webstorm
 
 # set wallpaper with feh (or use nitrogen)

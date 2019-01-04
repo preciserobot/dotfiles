@@ -169,7 +169,6 @@ nnoremap <C-L> <C-W><C-L>
 "map <C-j> <C-w>j
 "map <C-k> <C-w>k
 "map <C-l> <C-w>l
-
 " movement remap in case of wrapped lines
 "nnoremap j gj
 "nnoremap k gk
@@ -181,6 +180,9 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+
+" remap default macro to space (faster than typing @q)
+nnoremap <Space> @q
 
 " Use UNIX (\n) line endings for new files
 autocmd BufNewFile *.py,*.pyw,*.c,*.h,*.html,*.js,*.jsx set fileformat=unix
