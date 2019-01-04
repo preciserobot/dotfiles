@@ -48,7 +48,8 @@ export PATH=~/.vim/plugged/vim-live-latex-preview/bin:$PATH
 
 # Snappy/SQVD
 export SNAPPYHOME=${HOME}/snappy
-export SNAPPYWORK=${HOME}/work
+export SNAPPYWORK=/srv/work
+#export SNAPPYWORK=${HOME}/work
 export SQVDAPIUSER=admin
 export SQVDAPIPASS=admin
 # anaconda
