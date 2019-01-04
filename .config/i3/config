@@ -236,10 +236,10 @@ assign [class="Evolution"] $ws4
 assign [class="Thunar"] $ws5
 assign [class="Steam"] $ws6
 assign [class="Spotify"] $ws7
-for_window [class="Spotify"] move to workspace $ws7
 #assign [class="mpv"] $ws8
 
 # Open specific applications in floating mode
+for_window [class="mpv"] border none
 for_window [class="URxvt"] border none
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Calamares"] floating enable border normal
