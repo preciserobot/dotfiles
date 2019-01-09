@@ -330,7 +330,8 @@ exec_always xrdb ~/.Xresources
 #exec --no-startup-id dunst
 exec --no-startup-id unclutter
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b -f -D 5
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id compton -b -f -D 5
 exec --no-startup-id nm-applet
 #exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -342,7 +343,6 @@ exec --no-startup-id redshift-gtk
 exec_always --no-startup-id sbxkb &
 exec --no-startup-id xautolock -time 10 -locker /home/dbrawand/.scripts/screenlock
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id run_keybase &
 
 # touchpad pause when typing and dell keyboard hack (disable PgUp & PgDn)
 #exec --no-startup-id syndaemon -i 1 -t -K -R -d
@@ -364,7 +364,7 @@ exec --no-startup-id conky -c ~/.i3/conky/conky_graphs &
 #exec --no-startup-id evolution
 #exec --no-startup-id thunar
 #exec --no-startup-id urxvt
-exec --no-startup-id dropbox
+#exec --no-startup-id dropbox
 #exec --no-startup-id webstorm
 
 # set wallpaper with feh (or use nitrogen)
