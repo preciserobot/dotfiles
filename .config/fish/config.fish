@@ -12,5 +12,7 @@ set -g -x SNAPPYWORK $HOME/work
 set -g -x SQVDAPIUSER admin
 set -g -x SQVDAPIPASS admin
 set -g -x EDITOR vim
-set -g -x BROWSER 'firefox-developer-edition'
+# set -g -x BROWSER 'firefox-developer-edition'
+# set -g -x BROWSER 'google-chrome-stable'
+set -g -x BROWSER 'brave'
 thefuck --alias | source
