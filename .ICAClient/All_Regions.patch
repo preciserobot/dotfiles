@@ -1,0 +1,10 @@
+921c921
+< TWIMode=*
+---
+> TWIMode=false
+962,963c962,963
+< DesiredHRES=*
+< DesiredVRES=*
+---
+> DesiredHRES=1920
+> DesiredVRES=1080
