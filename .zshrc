@@ -52,6 +52,8 @@ export SNAPPYWORK=/srv/work
 #export SNAPPYWORK=${HOME}/work
 export SQVDAPIUSER=admin
 export SQVDAPIPASS=admin
+# go
+export GOPATH=${HOME}/Syncthing/private/go
 # anaconda
 # export ANACONDA=${HOME}/anaconda
 # export PATH=$ANACONDA/bin:$PATH

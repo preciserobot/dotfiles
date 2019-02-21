@@ -24,6 +24,9 @@ history.*
 .Xauthority
 .Xclients
 
+# host specific fish config
+.config/fish/fishd.*
+
 # application data
 .local/share/
 .moc/*

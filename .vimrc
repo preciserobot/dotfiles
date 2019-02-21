@@ -182,7 +182,7 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
 " remap default macro to space (faster than typing @q)
-nnoremap <Space> @q
+nnoremap ` @q
 
 " Use UNIX (\n) line endings for new files
 autocmd BufNewFile *.py,*.pyw,*.c,*.h,*.html,*.js,*.jsx set fileformat=unix
