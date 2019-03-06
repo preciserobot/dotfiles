@@ -53,6 +53,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'wakatime/vim-wakatime'  "WakaTime tracking
 Plug 'zchee/deoplete-go'  " golang autocompletion
 Plug 'zchee/deoplete-jedi'  " Python autocompletion
 

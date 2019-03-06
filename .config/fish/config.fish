@@ -16,6 +16,9 @@ set -g -x EDITOR vim
 # set -g -x BROWSER 'google-chrome-stable'
 set -g -x BROWSER 'brave'
 
+# fish vi-mode
+fish_vi_key_bindings
+
 # autocorrect
 thefuck --alias | .
 
