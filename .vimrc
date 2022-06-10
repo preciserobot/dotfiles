@@ -7,57 +7,78 @@ set hidden
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" General
 Plug 'tpope/vim-fugitive' " git command tool
-Plug 'airblade/vim-gitgutter' " git diff in gutter
+Plug 'airblade/vim-gitgutter'  " git annotations in gutter
 Plug 'jiangmiao/auto-pairs'  " automatically close brackets etc.
 Plug 'tpope/vim-surround' " surround motion
-"Plug 'tpope/vim-commentary' " Comment stuff
-Plug 'terryma/vim-multiple-cursors' " Sublime style multiple cursors
+Plug 'ctrlpvim/ctrlp.vim' " Ctrl-P Fullzy file finder
+Plug 'tpope/vim-commentary' " Comment stuff
+Plug 'wakatime/vim-wakatime'  "WakaTime tracking
+Plug 'vim-ctrlspace/vim-ctrlspace' " buffer/window manager
+Plug 's3rvac/AutoFenc' " auto file encoding detection
+Plug 'Yggdroot/indentLine' " Line indenting
+Plug 'majutsushi/tagbar' " class viewer <F8>
+Plug 'w0rp/ale' " async lint engine
+Plug 'sheerun/vim-polyglot' " support for multiple languages
+
+Plug 'vim-scripts/AutoComplPop' " autocomplete popup
+
+" Status bar
 Plug 'vim-airline/vim-airline' " powerline-style status Bar
 Plug 'vim-airline/vim-airline-themes' " airline-themes
-Plug 'airblade/vim-gitgutter'  " git annotations in gutter
-Plug 'altercation/vim-colors-solarized'  " nice solarized colorscheme
-Plug 'trevordmiller/nova-vim' " nova color scheme
-Plug 'flazz/vim-colorschemes' " plenty of colorschemes
-Plug 'gertjanreynaert/cobalt2-vim-theme' " Cobalt2 Theme
-Plug 'dylanaraps/wal.vim' " pyWAL based colourschemes
-Plug 's3rvac/AutoFenc' " auto file encoding detection
+Plug 'bling/vim-bufferline' " Show buffers in statusline
 Plug 'vim-syntastic/syntastic' "Syntax checker in statusline
-Plug 'w0rp/ale' " async lint engine
-Plug 'mattn/emmet-vim' " Emmet
-Plug 'sheerun/vim-polyglot' " support for multiple languages
-"Plug 'mxw/vim-jsx' " JSX highlighting and indenting
-"Plug 'pangloss/vim-javascript' " Improved javascript highlighting and indenting
-Plug 'majutsushi/tagbar' " class viewer <F8>
-Plug 'Yggdroot/indentLine' " Line indenting
-Plug 'wikitopian/hardmode' " Yes I'm hardcore
-Plug 'vimwiki/vimwiki' " vim-wiki
-Plug 'aaronbieber/vim-quicktask' " vim task list
-Plug 'junegunn/goyo.vim' " distraction free writing
-Plug 'scrooloose/nerdtree' " Directory/file tree
+"
+" NERDtree stuff
+Plug 'scrooloose/nerdtree', { 'on':'NERDTreeToggle' } " Directory/file tree
 Plug 'Xuyuanp/nerdtree-git-plugin' " git annotations for nerdtree
 Plug 'scrooloose/nerdcommenter' " commenting of lines and blocks
-Plug 'tmhedberg/SimpylFold' " folding for python code
-Plug 'ctrlpvim/ctrlp.vim' " Ctrl-P Fullzy file finder
-Plug 'vim-ctrlspace/vim-ctrlspace' " buffer/window manager
-Plug 'bling/vim-bufferline' " Show buffers in statusline
-Plug 'ying17zi/vim-live-latex-preview' "LaTeX live previews
-Plug 'vim-pandoc/vim-pandoc' " pandoc plugin (eg. for RMarkdown)
-Plug 'vim-pandoc/vim-pandoc-syntax' " pandoc syntax
-Plug 'vim-pandoc/vim-rmarkdown' " Rmarkdown support
-"Plug 'lervag/vimtex' " Full featured LaTeX editing package
+Plug 'scrooloose/nerdtree-project-plugin' " stores nerdstree state between sessions
+Plug 'PhilRunninger/nerdtree-buffer-ops' " shows open files. allows closing
+
+" color schemes
+Plug 'flazz/vim-colorschemes' " plenty of colorschemes
+
+" async autocomplete (deoplete)
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }  " asynchronous autocompletion
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'wakatime/vim-wakatime'  "WakaTime tracking
-Plug 'zchee/deoplete-go'  " golang autocompletion
+
+" JS stuff
+Plug 'mxw/vim-jsx', { 'for': ['jsx'] } " JSX highlighting and indenting
+Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] } " Improved javascript highlighting and indenting
+
+" Writing stuff
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' } " distraction free writing
+Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' } "LaTeX live previews
+Plug 'vim-pandoc/vim-rmarkdown', { 'for': 'rmd' }" Rmarkdown support
+Plug 'lervag/vimtex', { 'for': 'tex' } " Full featured LaTeX editing package
+Plug 'vim-pandoc/vim-pandoc', { 'for': ['markdown', 'rmd', 'tex'] } " pandoc plugin (eg. for RMarkdown)
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd', 'tex'] } " pandoc syntax
+
+" Python stuff
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' } " folding for python code
 Plug 'zchee/deoplete-jedi'  " Python autocompletion
 
+" golang stuff
+Plug 'zchee/deoplete-go'  " golang autocompletion
+
 call plug#end()  " Initialize plugin system
+
+" Edit vimrc configuration file
+cnoremap confe :e $MYVIMRC
+" Reload vimrc configuration file
+cnoremap confr :source $MYVIMRC
+
+" autocomplete popup
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
 
 " Deoplete autocompletion 
 let g:deoplete#enable_at_startup = 1  " autocompletion
@@ -98,10 +119,12 @@ let g:syntastic_check_on_wq = 0
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" let g:NERDTreeDirArrowExpandable = '+'
+" let g:NERDTreeDirArrowCollapsible = '-'
 
 " powerline/airline
 let g:powerline_pycmd = 'py3'
@@ -109,45 +132,22 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
-"let g:airline_theme = 'onehalfdark'
+let g:airline_theme = 'cobalt2'
 
-" lightline (like airline, not active currently)
-let g:lightline = {
-  \   'colorscheme': 'Dracula',
-  \   'active': {
-  \     'left':[ [ 'mode', 'paste' ],
-  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-  \     ]
-  \   },
-  \   'component': {
-  \     'lineinfo': ' %3l:%-2v',
-  \   },
-  \   'component_function': {
-  \     'gitbranch': 'fugitive#head',
-  \   }
-  \ }
-let g:lightline.separator = {
-	\   'left': '', 'right': ''
-  \}
-let g:lightline.subseparator = {
-	\   'left': '', 'right': ''
-  \}
-let g:lightline.tabline = {
-  \   'left': [ ['tabs'] ],
-  \   'right': [ ['close'] ]
-  \ }
-
-" ########################################################
-" ### END OF PLUGIN CONFIG ###############################
-" ########################################################
 
 syntax on
 set encoding=utf-8
 set t_Co=256
 set cursorline
-colorscheme slate
-" colorscheme zenburn
-" colorscheme wal
+colorscheme cobalt2
+"colorscheme zenburn
+"colorscheme monokai
+"colorscheme molokai
+"colorscheme wal
+
+" ########################################################
+" ### END OF PLUGIN CONFIG ###############################
+" ########################################################
 
 " show tabline
 set showtabline=2
@@ -287,9 +287,9 @@ highlight BadWhitespace ctermbg=red guibg=red
 autocmd BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-" WRITE WRITE WRITE WRITE
-" WRITE WRITE WRITE WRITE
-" WRITE WRITE WRITE WRITE
+" =======================
+" ==== WRITE ============
+" =======================
 
 " auto templates
 if has("autocmd")
